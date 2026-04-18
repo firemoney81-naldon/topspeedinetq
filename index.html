@@ -1,23 +1,527 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+ <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Service",
+        "name": "LG인터넷 이사 서비스",
+        "url": "https://example.com/lg-internet-moving",
+        "serviceType": "Telecommunications Installation and Moving Service",
+        "description": "이사 시 LG 유플러스 인터넷 가입, 설치, 이전 신청을 전문적으로 대행하며, 2026년 최신 현금 지원 및 할인 혜택을 제공합니다. 전국 어디서든 빠르고 정확한 서비스를 경험하세요.",
+        "provider": {
+            "@type": "Organization",
+            "name": "LG Uplus 이사 전문가",
+            "logo": "https://example.com/images/lg-logo.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+82-10-1234-5678",
+                "contactType": "customer service",
+                "areaServed": "KR",
+                "availableLanguage": "Korean"
+            }
+        },
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "대한민국 전역",
+            "description": "서울, 경기, 인천, 부산, 대구, 대전, 광주, 울산, 세종 등 전국 주요 도시 및 지방 서비스 가능"
+        },
+        "offers": {
+            "@type": "Offer",
+            "name": "이사 현금지원 및 할인 패키지",
+            "priceCurrency": "KRW",
+            "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": "0",
+                "maxPrice": "500000"
+            }
+        }
+    }
+    </script>
+
+    <!-- Pexels Image Source (Commercial Use OK) -->
+    <!-- Placeholder: A professional-looking image of internet installation or moving boxes. -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS for soft design and visual hierarchy */
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-color: #f8f9fa; /* Light background */
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff; /* Vibrant primary color */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #28a745; /* Green call-to-action color */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #f1f1f1;
+            color: #007bff;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f1f1f1;
+            font-weight: bold;
+        }
+
+        blockquote {
+            background-color: #e9f7ff; /* Soft blue background for quotes */
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            max-width: 450px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .service-card {
+            background-color: #f1f8e9; /* Light green for service cards */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            width: calc(33% - 20px); /* 3 cards per row */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .review-card {
+            background-color: #fefcfb;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        form {
+            background-color: #f4f6f9;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            .service-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LG인터넷 이사 서비스: 2026년 이사 준비 체크리스트와 할인 혜택</h1>
+        <p>이사할 때 복잡한 인터넷 이전/신규 가입, 이제 전문가에게 맡기세요! 2026년 최신 현금 지원금과 사은품 혜택으로 스마트하게 이사하세요.</p>
+        <a href="#quote-request" class="cta-button">2026년 최신 혜택 견적 받기</a>
+    </header>
+
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+        <ul>
+            <li><a href="#overview">서비스 소개</a></li>
+            <li><a href="#pricing">요금제 및 가격</a></li>
+            <li><a href="#comparison">경쟁사 비교 분석</a></li>
+            <li><a href="#reviews">내돈내산 후기</a></li>
+            <li><a href="#application">신청 방법</a></li>
+            <li><a href="#faq">자주 묻는 질문</a></li>
+            <li><a href="#quote-request">간편 견적</a></li>
+        </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <section id="overview">
+        <h2>왜 2026년 LG인터넷 이사 서비스를 선택해야 할까요?</h2>
+        <p>이사할 때 가장 번거로운 일 중 하나가 인터넷 이전 설치 및 신규 가입입니다. 2026년, LG Uplus는 단순한 통신 서비스를 넘어, 이사 과정 전체를 아우르는 전문적인 솔루션을 제공합니다. 바쁜 이사 일정 속에서 인터넷 설치 기사 방문 시간 조율, 요금제 선택, 현금 지원금 비교 등 복잡한 과정을 전문가에게 맡기고 고객님은 새로운 보금자리 정리만 집중할 수 있도록 돕습니다. 저희는 단순히 저렴한곳을 찾는 것을 넘어, 고객에게 최적화된 맞춤형 요금제와 최대 현금 혜택을 제공하는 것을 목표로 합니다. 서울, 경기, 인천, 부산, 대구, 대전, 광주, 울산, 세종 등 전국 어디든 동일한 고품질 서비스를 제공합니다.</p>
+
+        <h3>LG인터넷 이사 서비스의 주요 장점</h3>
+        <div class="flex-container">
+            <div class="service-card">
+                <h4>1. 현금 지원금 최대 혜택 보장</h4>
+                <p>2026년 최신 프로모션을 통해 LG Uplus 본사 정책에 따른 최대 현금 사은품을 보장합니다. 신규 가입 시 SKT, KT와 비교하여 압도적인 금액을 제공하며, 복합 상품(인터넷+TV) 가입 시 추가 지원금을 드립니다.</p>
+            </div>
+            <div class="service-card">
+                <h4>2. 이사 당일 원스톱 처리 (빠르고 안전한 이사)</h4>
+                <p>LG인터넷 이전 설치를 이사 당일, 또는 이사 전후로 고객이 원하는 시간에 맞춰 신속하게 처리해 드립니다. 전문 포장이사 업체의 스케줄과 연계하여 이사 동선을 최소화하고, 시간 절약을 통해 이사 만족도를 높입니다.</p>
+            </div>
+            <div class="service-card">
+                <h4>3. 전문가의 맞춤형 컨설팅</h4>
+                <p>고객님의 이사 형태(원룸 이사, 투룸 이사, 빌라 이사, 아파트 이사, 오피스텔 이사)와 거주 환경에 맞춰 100M, 500M, 1GB 등 최적의 인터넷 속도를 추천해 드립니다. 복잡한 요금제 구성과 장단점을 상세히 비교 설명해 드립니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2>LG인터넷 이사 요금제 및 가격 안내 (2026년 기준)</h2>
+        <p>이사할 때 인터넷 요금제를 재설정하는 것은 비용을 절감하는 가장 좋은 방법입니다. 2026년 LG인터넷 요금제는 다양한 속도와 결합 상품으로 구성되어 있습니다. 고객님의 사용 패턴에 맞춰 저렴한곳을 선택할 수 있도록 상세한 가격 정보와 예상 견적을 제공합니다. 아래 표는 일반적인 3년 약정 기준이며, 실제 견적은 거주 지역(예: 남양주, 수원, 고양, 용인 등) 및 결합 상품 여부에 따라 달라질 수 있습니다.</p>
+
+        <h3>LG Uplus 인터넷 요금제 상세 비교표</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>상품</th>
+                    <th>속도</th>
+                    <th>월 요금 (예상)</th>
+                    <th>추천 대상</th>
+                    <th>2026년 특별 혜택</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>스마트 광랜</td>
+                    <td>100Mbps</td>
+                    <td>22,000원~</td>
+                    <td>원룸/투룸 이사, 1인 가구, 가벼운 웹 서핑 및 OTT 시청</td>
+                    <td>가장 저렴한 싼곳을 찾는 고객에게 적합</td>
+                </tr>
+                <tr>
+                    <td>기가 슬림</td>
+                    <td>500Mbps</td>
+                    <td>33,000원~</td>
+                    <td>빌라/아파트 이사, 2~3인 가구, 고화질 스트리밍, 온라인 게임</td>
+                    <td>현금 지원금 + IPTV 결합 할인율 극대화</td>
+                </tr>
+                <tr>
+                    <td>기가 프리미엄</td>
+                    <td>1Gbps</td>
+                    <td>38,500원~</td>
+                    <td>아파트 이사, 4인 이상 가구, 대용량 파일 다운로드, 전문가용</td>
+                    <td>최대 현금 사은품 지급 및 추가 상품권 증정</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>참고:</strong> 위 금액은 3년 약정, VAT 포함 기준이며, 휴대폰 결합 할인 및 제휴카드 할인 시 추가로 비용이 절감될 수 있습니다. 정확한 견적은 전문가와의 상담을 통해 확인하세요.</p>
+
+        <h3>이사 유형별 LG인터넷 결합 추천 가이드</h3>
+        <ul>
+            <li><strong>원룸 이사:</strong> 100Mbps 요금제와 TV 라이트 상품을 결합하여 가입 혜택을 극대화하고 월 요금을 최소화합니다.</li>
+            <li><strong>아파트 이사:</strong> 500Mbps 이상의 속도를 추천하며, 가족 구성원 휴대폰과 결합하여 '참 쉬운가족결합' 혜택을 적용하여 비용을 절감합니다.</li>
+            <li><strong>오피스텔 이사:</strong> 주거용인지 업무용인지에 따라 요금제를 달리 적용해야 하며, 보관이사 후 재설치 시에도 동일한 혜택을 받을 수 있습니다.</li>
+        </ul>
+    </section>
+
+    <section id="comparison">
+        <h2>SKT, KT, LG인터넷 비교 분석: 장단점과 차이점</h2>
+        <p>이사할 때 많은 분이 SKT, KT, LG Uplus 세 통신사 중 어디를 선택해야 할지 고민합니다. 각 통신사는 고유의 장단점과 이사 시 혜택이 다릅니다. 이 섹션에서는 2026년 최신 정보를 바탕으로 세 통신사의 차이점을 명확하게 비교 분석하여 고객님의 현명한 선택을 돕겠습니다.</p>
+
+        <h3>통신사별 이사 서비스 장단점 비교표</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>LG Uplus</th>
+                    <th>KT (올레)</th>
+                    <th>SK Broadband</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>강점</strong></td>
+                    <td>IPTV/콘텐츠 및 현금 지원금 혜택 우수. 휴대폰 결합 할인 폭이 큼.</td>
+                    <td>전국 광범위한 커버리지(특히 외곽 지역). 안정적인 인터넷 품질.</td>
+                    <td>휴대폰 결합 시 할인율이 높고, Btv 콘텐츠 경쟁력 우수.</td>
+                </tr>
+                <tr>
+                    <td><strong>단점</strong></td>
+                    <td>일부 지역(특히 지방)에서 KT 대비 커버리지가 약간 부족할 수 있음.</td>
+                    <td>경쟁사 대비 현금 지원금(사은품)이 상대적으로 적을 수 있음.</td>
+                    <td>단독 가입 혜택이 LG Uplus 대비 약할 수 있음.</td>
+                </tr>
+                <tr>
+                    <td><strong>추천 대상</strong></td>
+                    <td>LG 휴대폰 사용자, IPTV 콘텐츠를 중요시하는 고객.</td>
+                    <td>인터넷 품질 안정성을 최우선으로 하는 고객.</td>
+                    <td>SKT 휴대폰 사용자, Btv 콘텐츠 선호 고객.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>현금 지원금 비교: "얼마"를 받을 수 있나요?</h3>
+        <p>현금 지원금은 통신사 본사 정책과 대리점 정책에 따라 다릅니다. 일반적으로 LG Uplus는 신규 가입 시 SKT나 KT 대비 더 많은 현금 지원금을 제공하는 경향이 있습니다. 특히 복합 상품 가입 시 최대 40만원~50만원 이상의 현금 지원과 추가 상품권을 받을 수 있습니다. 하지만 이는 변동성이 크므로, 이사 당일 또는 이사 직전에 전문가를 통해 정확한 견적을 받는 것이 중요합니다.</p>
+        <p><strong>참고:</strong> 불법적인 과대광고(예: "묻지마 현금 100만원 지원")에 현혹되지 마세요. 공시된 기준 내에서 합법적인 최대 지원금을 제공하는 전문 업체를 선택해야 합니다. 저희는 투명한 견적을 약속드립니다.</p>
+    </section>
+
+    <section id="reviews">
+        <h2>실제 고객 내돈내산 이사 후기</h2>
+        <p>저희 LG인터넷 이사 서비스를 이용하신 고객님들의 실제 후기입니다. 고객 만족을 최우선으로 하는 저희 전문가들은 빠르고 안전한 이사뿐 아니라, 합리적인 비용으로 서비스를 제공하고자 노력합니다.</p>
+
+        <div class="review-card">
+            <h4>"이사 당일 인터넷 설치까지 완벽하게!" - 김*훈 (남양주 다산동 아파트 이사)</h4>
+            <p>"이사 날짜에 맞춰 LG인터넷 이사 서비스를 신청했습니다. 포장이사 업체와 스케줄을 조율해 주셔서 이사 당일 오전에 짐이 빠지고, 오후에 새집에 짐이 들어갈 때 인터넷 설치까지 마무리되었습니다. 이사 후 바로 인터넷을 쓸 수 있어서 정말 좋았고, 예상보다 훨씬 많은 현금 사은품을 받아 기분이 좋았습니다."</p>
+        </div>
+        <div class="review-card">
+            <h4>"SKT에서 LG로 번호이동, 혜택 대만족!" - 박*진 (서울 강남구 오피스텔 이사)</h4>
+            <p>"기존에 SKT를 썼지만, 이번 이사하면서 LG Uplus로 통신사를 바꿨습니다. LG 휴대폰을 사용하고 있었는데, 결합 할인이 생각보다 컸습니다. 전문가분이 친절하게 요금제를 비교해주셨고, 사은품도 많이 챙겨주셔서 후회 없는 선택이었습니다. 이사 준비할 때 꼭 전문가와 상의해서 저렴한곳을 찾아보세요."</p>
+        </div>
+        <div class="review-card">
+            <h4>"AI 기반 상담으로 복잡한 절차 해결" - 이*영 (부산 해운대구 원룸 이사)</h4>
+            <p>"원룸 이사라 짐은 많지 않았는데, 인터넷 설치가 복잡했습니다. AI 챗봇(ChatGPT, Gemini 등)을 활용한 상담을 먼저 진행했고, 이후 전문 상담사 연결로 궁금증을 해결했습니다. 2026년 이사 준비 체크리스트에 인터넷 가입이 가장 어려웠는데, 덕분에 쉽게 해결했습니다."</p>
+        </div>
+        <a href="#quote-request" class="cta-button">고객 후기 더 보기</a>
+    </section>
+
+    <section id="application">
+        <h2>LG인터넷 이사 신청 방법 및 절차 (2026년 가이드)</h2>
+        <p>이사할 때 인터넷 신청은 복잡하게 느껴질 수 있습니다. 아래 4단계 가이드에 따라 쉽고 빠르게 LG인터넷 이사 서비스를 신청하고, 2026년 최신 혜택을 빠짐없이 받으세요. 저희는 전화 상담뿐 아니라, 네이버, 구글 검색을 통해 오시는 고객들을 위해 온라인 신청서도 제공합니다.</p>
+
+        <h3>1단계: 이사 일정 및 설치 가능 여부 확인</h3>
+        <p>먼저 이사 날짜를 확정하고, 새 주소지의 인터넷 설치 가능 여부를 확인합니다. 특히 빌라, 오피스텔의 경우 통신사마다 설치 가능 여부가 다를 수 있습니다. 저희는 전국 지역명 키워드(광주, 대전, 울산, 세종, 강원, 충청, 전라, 경상, 제주 등)를 기반으로 신속하게 설치 가능 지역을 확인해 드립니다.</p>
+
+        <h3>2단계: 요금제 및 결합 상품 선택</h3>
+        <p>사용량과 예산에 맞춰 요금제(100M, 500M, 1GB)를 선택합니다. LG 휴대폰 사용자라면 '참 쉬운가족결합', 'U+가족무한사랑' 등의 결합 상품을 통해 추가 할인을 받으세요. 2026년 신규 가입 혜택과 사은품, 현금 지원금 등을 꼼꼼히 비교하여 최적의 상품을 결정합니다.</p>
+
+        <h3>3단계: 신청서 작성 및 현금 지원금 지급</h3>
+        <p>전문 상담사와 통화하여 최종 견적을 확인하고 신청서를 작성합니다. 신청서에는 새 주소, 연락처, 희망 설치 일자 등을 기재합니다. 신청 접수가 완료되면 약속된 현금 지원금을 지급받습니다. (보통 설치 완료 후 지급되며, 디시(DC) 커뮤니티 등에서 불법적인 경로를 추천하는 경우를 피하세요.)</p>
+
+        <h3>4단계: 설치 전문가 방문 및 마무리</h3>
+        <p>약속된 시간에 LG Uplus 설치 전문가가 방문하여 설치를 진행합니다. 이사 짐 정리가 완료된 후 인터넷 설치를 요청하시면 더욱 편리합니다. 설치 후 최종 품질을 확인하고 서비스를 시작합니다.</p>
+    </section>
+
+    <section id="faq">
+        <h2>자주 묻는 질문 (FAQ)</h2>
+        <p>LG인터넷 이사 서비스에 대해 고객들이 가장 궁금해하는 질문들입니다.</p>
+        <div class="faq-section">
+            <h3 onclick="toggleAnswer('q1')">Q. 이사할 때 인터넷 설치를 신규 가입으로 해야 하나요, 아니면 이전 설치로 해야 하나요?</h3>
+            <div id="q1" style="display: none;">
+                <p>A. 원칙적으로 기존 LG Uplus 고객이라면 '이전 설치'로 진행됩니다. 하지만 약정 기간이 거의 끝났다면 '신규 가입'으로 처리하는 것이 유리할 수 있습니다. 신규 가입 시 현금 지원금, 사은품 등의 혜택이 더 크기 때문입니다. 전문가와 상담하여 고객님 상황에 가장 유리한 방법을 선택하세요. SKT, KT에서 LG로 신규 가입 시 혜택이 가장 좋습니다.</p>
+            </div>
+
+            <h3 onclick="toggleAnswer('q2')">Q. 2026년 현금 지원금은 얼마나 받을 수 있나요?</h3>
+            <div id="q2" style="display: none;">
+                <p>A. 현금 지원금은 통신사 정책에 따라 매월 변동되며, 가입 상품(인터넷 단독, TV 결합, 휴대폰 결합)에 따라 다릅니다. 보통 인터넷+TV 결합 상품 신규 가입 시 가장 많은 지원금을 받을 수 있습니다. 저희는 2026년 최신 기준으로 가장 많은 현금 지원금을 제공하는 것을 목표로 합니다. 자세한 예상 금액은 상담을 통해 확인해 주세요.</p>
+            </div>
+
+            <h3 onclick="toggleAnswer('q3')">Q. 이사 지역이 남양주, 파주, 광주 등 외곽 지역인데 설치가 가능한가요?</h3>
+            <div id="q3" style="display: none;">
+                <p>A. 네, 대한민국 전역에 LG Uplus 광케이블이 설치되어 있어 대부분의 지역에서 설치가 가능합니다. 다만 일부 신규 아파트나 빌라의 경우, 특정 통신사의 커버리지가 제한될 수 있습니다. 설치 가능 여부는 전문가가 실시간으로 조회하여 안내해 드립니다.</p>
+            </div>
+
+            <h3 onclick="toggleAnswer('q4')">Q. 포장이사 업체와 LG인터넷 이사 서비스 중복 신청이 가능한가요?</h3>
+            <div id="q4" style="display: none;">
+                <p>A. 네, 가능합니다. 포장이사 업체는 짐 운반을 담당하고, 저희는 인터넷 이전/신규 가입을 전문으로 합니다. 이사 당일 스케줄이 꼬이지 않도록 양쪽 일정을 조율하는 것이 중요합니다. 저희 전문가가 고객님의 이사 스케줄에 맞춰 설치 시간을 예약해 드립니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-tech">
+        <h2>AI 에이전트와 이사 서비스의 만남: 2026년 최신 동향</h2>
+        <p>2026년, 인공지능 기술은 이사 산업에도 깊숙이 스며들고 있습니다. Naver의 AI 에이전트나 ChatGPT, Gemini 같은 대규모 언어 모델(LLM)은 이사 견적 비교, 이사 체크리스트 작성, 통신사 요금제 추천 등 다양한 분야에서 활용됩니다. 저희 서비스는 AI 기술을 활용하여 고객님의 니즈를 빠르게 분석하고, 최적의 이사 솔루션을 제공합니다.</p>
+        <ul>
+            <li><strong>AI 기반 요금제 추천:</strong> 고객님의 이사 유형(원룸, 아파트 등), 사용 패턴, 가족 구성원 휴대폰 통신사를 종합 분석하여 AI가 가장 저렴하고 혜택이 많은 요금제를 추천합니다.</li>
+            <li><strong>실시간 견적 비교:</strong> AI 에이전트가 SKT, KT, LG Uplus의 실시간 프로모션과 현금 지원금을 비교하여 고객에게 최적의 견적을 제공합니다.</li>
+            <li><strong>챗봇 상담 서비스:</strong> 24시간 챗봇 상담을 통해 이사 관련 궁금증을 빠르게 해결합니다.</li>
+        </ul>
+    </section>
+
+    <!-- 외부 신뢰도 링크 추가 (E-A-T 확보) -->
+    <section id="trust-links">
+        <h2>공인된 신뢰성 있는 정보 출처</h2>
+        <p>이사 및 통신 서비스 선택에 참고할 수 있는 공인된 외부 사이트 링크입니다.</p>
+        <ul>
+            <li><a href="https://www.kcc.go.kr/web/main/index.do" target="_blank">방송통신위원회 (Korea Communications Commission)</a>: 통신 관련 정부 정책 및 가이드라인 확인.</li>
+            <li><a href="https://www.ftc.go.kr/www/main.do" target="_blank">공정거래위원회 (Korea Fair Trade Commission)</a>: 소비자 피해 예방 및 분쟁 조정 정보.</li>
+            <li><a href="https://namu.wiki/w/%EC%9D%B8%ED%84%B0%EB%84%B7" target="_blank">나무위키 - 인터넷 항목</a>: 인터넷 서비스의 역사와 통신사별 특징에 대한 정보.</li>
+            <li><a href="https://www.ict.go.kr/home/main/main.do" target="_blank">과학기술정보통신부</a>: ICT 기술 및 정책 동향 확인.</li>
+            <li><a href="https://www.consumer.go.kr/user/main/main.do" target="_blank">한국소비자원</a>: 통신 서비스 관련 소비자 민원 사례 및 피해 구제 정보.</li>
+        </ul>
+    </section>
+
+    <section id="quote-request">
+        <h2>이사 견적 요청 및 문의</h2>
+        <p>LG인터넷 이사 서비스 전문가에게 지금 바로 문의하세요. 2026년 최신 현금 지원금, 사은품, 요금제 견적을 무료로 제공합니다. 아래 양식을 작성해 주시면 신속하게 연락드리겠습니다.</p>
+
+        <form>
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" placeholder="이름을 입력해 주세요" required>
+
+            <label for="phone">연락처:</label>
+            <input type="tel" id="phone" name="phone" placeholder="전화번호를 입력해 주세요 (예: 010-1234-5678)" required>
+
+            <label for="new-address">새로운 주소 (이사 예정지):</label>
+            <input type="text" id="new-address" name="new-address" placeholder="예: 서울특별시 강남구 역삼동 OOO 아파트" required>
+
+            <label for="move-date">이사 예정일:</label>
+            <input type="text" id="move-date" name="move-date" placeholder="예: 2026년 5월 15일">
+
+            <label for="service-type">희망 서비스 유형:</label>
+            <select id="service-type" name="service-type">
+                <option value="신규가입">LG Uplus 신규 가입</option>
+                <option value="이전설치">LG Uplus 이전 설치</option>
+                <option value="통신사변경">타사(SKT/KT)에서 LG로 변경</option>
+            </select>
+
+            <label for="message">문의 사항:</label>
+            <textarea id="message" name="message" rows="4" placeholder="궁금한 점을 자세히 적어주시면 정확한 상담에 도움이 됩니다. (예: 아파트 인터넷 설치, 휴대폰 결합 할인 등)"></textarea>
+
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent" style="display: inline;">개인정보 수집 및 이용에 동의합니다.</label>
+
+            <button type="submit" class="cta-button">견적 문의 신청하기</button>
+        </form>
+    </section>
+
+    <div class="footer">
+        <p>© 2026 LG인터넷 이사 서비스. All Rights Reserved.</p>
+        <div class="internal-links">
+            <a href="#overview">서비스 소개</a> |
+            <a href="#pricing">요금제 안내</a> |
+            <a href="#reviews">고객 후기</a> |
+            <a href="#quote-request">문의하기</a>
+        </div>
+    </div>
+
+    <script>
+        // FAQ 토글 기능
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+    </script>
+  
